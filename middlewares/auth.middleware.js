@@ -9,6 +9,7 @@ const auth = (req, res, next) => {
       return res.status(401).json({
         message: "jwt must be provided",
       });
+      token = token.slice(7);
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err)
         return res.status(401).json({
