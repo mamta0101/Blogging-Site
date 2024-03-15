@@ -1,15 +1,11 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
-const bcrypt=require('bcrypt')
+const bcrypt = require("bcrypt");
 
 generateVerificationToken = (payload) => {
-  return jwt.sign(
-      payload,
-    process.env.JWT_SECRET,
-    {
-      expiresIn: "1d",
-    }
-  );
+  return jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: "1d",
+  });
 };
 
 const userController = {
@@ -22,7 +18,7 @@ const userController = {
       newUser.username = username;
       newUser.email = email;
       newUser.password = hashedPassword;
-      newUser.role = role;
+      newUser.role = role ? role : "user";
       await newUser.save();
 
       const jwt = generateVerificationToken({
