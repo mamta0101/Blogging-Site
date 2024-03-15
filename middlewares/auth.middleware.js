@@ -7,7 +7,7 @@ const auth = (req, res, next) => {
     const token = req.cookies.jwt;
     if (!token)
       return res.status(401).json({
-        message: "Invalid Authentication.",
+        message: "jwt must be provided",
       });
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err)

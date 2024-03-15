@@ -14,14 +14,14 @@ const router = express.Router();
 
 router
 .route('/')
-.post(createBlog)
+.post(auth,createBlog)
 .get(getAllBlogs);
 
 router
 .route('/:blogId')
 .get(getBlogById)
-.patch(updateBlog)
-.delete(deleteBlog);
+.patch(auth,updateBlog)
+.delete(auth,deleteBlog);
 
 
 module.exports=router;

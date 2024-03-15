@@ -21,11 +21,11 @@ const blogController = {
           message: "This blog already exists.",
         });
       }
-      // if (req.user.role !== "admin") {
-      //   return res.status(403).json({
-      //     message: "You are not authorize to create Blog",
-      //   });
-      // }
+      if (req.user.role !== "admin") {
+        return res.status(403).json({
+          message: "You are not authorize to create Blog",
+        });
+      }
       const newBlog = new Blog();
       newBlog.author = req.user.id;
       newBlog.blogTitle = blogTitle;
@@ -99,15 +99,15 @@ const blogController = {
         return res.status(404).json({
           message: "Blog not found by this Id",
         });
-      // if (blog.author.toString() !== req.user.id) {
-      //   return res.status(403).json({
-      //     message: "You are not authorized to update this blog",
-      //   });
-      // } else if (req.user.role !== "admin") {
-      //   return res.status(403).json({
-      //     message: "You are not authorize to update this Blog",
-      //   });
-      // }
+      if (blog.author.toString() !== req.user.id) {
+        return res.status(403).json({
+          message: "You are not authorized to update this blog",
+        });
+      } else if (req.user.role !== "admin") {
+        return res.status(403).json({
+          message: "You are not authorize to update this Blog",
+        });
+      }
       const updatedblog = await Blog.findByIdAndUpdate(
         req.params.blogId,
         req.body
@@ -130,15 +130,15 @@ const blogController = {
         return res.status(404).json({
           message: "Blog not found by this Id",
         });
-      // if (blog.author.toString() !== req.user.id) {
-      //   return res.status(403).json({
-      //     message: "You are not authorized to update this blog",
-      //   });
-      // } else if (req.user.role !== "admin") {
-      //   return res.status(403).json({
-      //     message: "You are not authorize to update this Blog",
-      //   });
-      // }
+      if (blog.author.toString() !== req.user.id) {
+        return res.status(403).json({
+          message: "You are not authorized to update this blog",
+        });
+      } else if (req.user.role !== "admin") {
+        return res.status(403).json({
+          message: "You are not authorize to update this Blog",
+        });
+      }
       await Blog.findByIdAndDelete(req.params.blogId);
       res.status(200).json({
         status: "success",
