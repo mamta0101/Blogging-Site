@@ -22,6 +22,7 @@ npm start
 The server will run on `http://localhost:3000` by default .
 
 ## Endpoints
+#### USER
 
 ### 1. `/` (POST)
 
@@ -55,13 +56,13 @@ The server will run on `http://localhost:3000` by default .
 - **Description**: Handles user logout.
 
 
-
-### 4. `/` (GET)
+###### BLOGS
+### 1. `/` (GET)
 
 - **Description**: Displays a list of Blogs.
 
 
-### 5. `/` (POST)
+### 2. `/` (POST)
 
 - **Description**: Adds a new Blog to the Blog-Site. Only accessible by Admin users.
 
@@ -80,12 +81,12 @@ The server will run on `http://localhost:3000` by default .
 ```
 
 
-### 6. `/:id` (DELETE)
+### 3. `/:id` (DELETE)
 
 - **Description**: Deletes a blog from the blogging site. Only accessible by Admin users.
 
 
-### 7. `/` (PATCH)
+### 4. `/` (PATCH)
 
 - **Description**: Adds a update aby Blog to the Blog-Site. Only accessible by Admin users.
 
@@ -103,6 +104,7 @@ The server will run on `http://localhost:3000` by default .
 }
 
 ## Note
+
 
 
 
